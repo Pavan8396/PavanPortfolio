@@ -24,6 +24,252 @@
   <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css"/>
 
   <style>
+    /* Modal */
+    .modal {
+      display: none; 
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(15, 23, 42, 0.85);
+      justify-content: center;
+      align-items: flex-start;
+      z-index: 2000;
+      overflow-y: auto;
+      padding: 2rem;
+    }
+
+    .modal-content {
+      background: var(--card);
+      color: var(--text);
+      max-width: 1000px;
+      width: 100%;
+      border-radius: 12px;
+      padding: 2rem;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+      position: relative;
+      max-height: 95vh;
+      overflow-y: auto;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 1rem;
+      right: 1.5rem;
+      font-size: 1.8rem;
+      font-weight: 700;
+      cursor: pointer;
+      color: var(--muted);
+      transition: color 0.2s;
+      z-index: 10;
+      background: none;
+      border: none;
+    }
+
+    .modal-close:hover {
+      color: var(--accent);
+    }
+
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 1.5rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .modal-title {
+      margin: 0;
+      font-size: 1.5rem;
+      font-weight: 700;
+    }
+
+    /* Modal Content Tabs */
+    .modal-tabs {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .modal-tab {
+      padding: 0.75rem 1.5rem;
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-weight: 600;
+      color: var(--muted);
+      border-bottom: 2px solid transparent;
+      transition: all 0.2s;
+    }
+
+    .modal-tab.active {
+      color: var(--accent);
+      border-bottom-color: var(--accent);
+    }
+
+    .modal-tab:hover {
+      color: var(--text);
+    }
+
+    /* Images Tab */
+    .images-tab {
+      flex: 1;
+    }
+
+    /* Content Tab */
+    .content-tab {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 400px;
+      padding: 2rem;
+      background: color-mix(in srgb, var(--bg) 95%, transparent);
+      border-radius: 8px;
+      border: 1px dashed var(--border);
+    }
+
+    .content-tab p,
+    .content-tab ul {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* Modal Carousel - Full Image View */
+    .carousel-container {
+      position: relative;
+      width: 100%;
+      margin-bottom: 1.5rem;
+      overflow: hidden;
+      border-radius: 10px;
+    }
+
+    .carousel-slides {
+      position: relative;
+      width: 100%;
+    }
+
+    .carousel-slide {
+      display: none;
+      width: 100%;
+    }
+
+    .carousel-slide.active {
+      display: block;
+    }
+
+    .carousel-slide img {
+      width: 100%;
+      height: auto;
+      max-height: 60vh;
+      object-fit: contain;
+      display: block;
+      border-radius: 10px;
+      background: var(--bg);
+    }
+
+    .carousel-nav {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .carousel-btn {
+      background: var(--accent);
+      color: white;
+      border: none;
+      padding: 0.6rem 1.2rem;
+      border-radius: 50px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .carousel-btn:hover:not(:disabled) {
+      background: var(--accent-2);
+      transform: translateY(-1px);
+    }
+
+    .carousel-btn:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    .carousel-indicators {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-top: 1rem;
+    }
+
+    .carousel-indicator {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--border);
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .carousel-indicator.active {
+      background: var(--accent);
+      transform: scale(1.2);
+    }
+
+    .carousel-counter {
+      text-align: center;
+      color: var(--muted);
+      font-size: 1rem;
+      font-weight: 600;
+      margin-top: 1rem;
+    }
+
+    .modal-description {
+      line-height: 1.6;
+      color: var(--text);
+    }
+
+    .modal-description a {
+      color: var(--accent);
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .modal-description a:hover {
+      text-decoration: underline;
+    }
+
+    .modal-description ul {
+      padding-left: 1.2rem;
+      margin: 1rem 0;
+    }
+
+    .modal-description li {
+      margin-bottom: 0.5rem;
+    }
+
+    .no-images {
+      text-align: center;
+      color: var(--muted);
+      padding: 2rem;
+    }
+
+    .no-images i {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      opacity: 0.5;
+    }
+
     :root {
       --bg: #f9fafb; --text: #0f172a; --muted: #475569;
       --accent: #3b82f6; --accent-2: #1e40af;
@@ -175,6 +421,32 @@
     @media (max-width: 820px) {
       .about-grid { grid-template-columns: 1fr; }
       .nav-inner { flex-wrap: wrap; }
+      .modal { padding: 1rem; align-items: flex-start; }
+      .modal-content { 
+        padding: 1.5rem; 
+        margin: 1rem 0; 
+        max-height: 95vh;
+      }
+      .carousel-slide img { 
+        max-height: 50vh; 
+      }
+      .modal-tabs {
+        flex-direction: column;
+      }
+      .modal-tab {
+        text-align: center;
+        padding: 0.75rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .carousel-slide img { 
+        max-height: 40vh; 
+      }
+      .modal-content {
+        padding: 1rem;
+        margin: 0.5rem;
+      }
     }
   </style>
 
@@ -342,7 +614,7 @@
   <section id="contact" data-aos="fade-up">
     <h2>Contact</h2>
     <div class="card">
-      <p>Open to QA automation roles and collaborations in Bengaluru or remote. Let’s talk about scalable frameworks, CI/CD integration, and raising coverage without compromising velocity.</p>
+      <p>Open to QA automation roles and collaborations in Bengaluru or remote. Let's talk about scalable frameworks, CI/CD integration, and raising coverage without compromising velocity.</p>
       <div class="contact-actions">
         <a class="btn" href="mailto:pavanumashankar8@gmail.com"><i class="fa-solid fa-envelope"></i> Email</a>
         <a class="btn" href="tel:+917348811599"><i class="fa-solid fa-phone"></i> Call</a>
@@ -373,10 +645,15 @@
   <!-- Project modal -->
   <div class="modal" id="projectModal" aria-hidden="true" aria-labelledby="modalTitle" role="dialog">
     <div class="modal-content">
-      <span class="modal-close" id="modalClose" aria-label="Close">&times;</span>
-      <!--<h3 id="modalTitle">Project details</h3>-->
+      <button class="modal-close" id="modalClose" aria-label="Close">&times;</button>
+      <div class="modal-header">
+        <h3 class="modal-title" id="modalTitle">Project details</h3>
+      </div>
+      <div id="modalTabs">
+        <!-- Tabs will be dynamically inserted here -->
+      </div>
       <div id="modalBody">
-        <!-- Filled dynamically -->
+        <!-- Content will be dynamically inserted here -->
       </div>
     </div>
   </div>
@@ -390,6 +667,8 @@
       const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
       const startTheme = saved || (prefersDark ? 'dark' : 'light');
       document.documentElement.setAttribute('data-theme', startTheme);
+      const toggleIcon = document.querySelector('#themeToggle i');
+      toggleIcon.className = startTheme === 'dark' ? 'fa-solid fa-sun' : 'fa-solid fa-moon';
     })();
 
     // Theme toggle
@@ -398,6 +677,8 @@
       const next = current === 'dark' ? 'light' : 'dark';
       document.documentElement.setAttribute('data-theme', next);
       localStorage.setItem('theme', next);
+      const toggleIcon = document.querySelector('#themeToggle i');
+      toggleIcon.className = next === 'dark' ? 'fa-solid fa-sun' : 'fa-solid fa-moon';
     });
 
     // AOS init
@@ -410,15 +691,16 @@
       links.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + id));
     }
     sections.forEach(id => {
-  const el = document.getElementById(id);
-  if (!el) return;
-  const obs = new IntersectionObserver(entries => {
-    entries.forEach(e => { 
-      if (e.isIntersecting) setActive(e.target.id); 
+      const el = document.getElementById(id);
+      if (!el) return;
+      const obs = new IntersectionObserver(entries => {
+        entries.forEach(e => { 
+          if (e.isIntersecting) setActive(e.target.id); 
+        });
+      }, { root: null, rootMargin: '-50% 0px -50% 0px', threshold: 0 });
+      obs.observe(el);
     });
-  }, { root: null, rootMargin: '-50% 0px -50% 0px', threshold: 0 });
-  obs.observe(el);
-});
+
     // Smooth scroll
     links.forEach(a => {
       a.addEventListener('click', e => {
@@ -432,67 +714,258 @@
     const projectDetails = {
       'hunt-career': {
         title: 'Hunt-Career — Full Stack Job Aggregator + Test Automation',
-        html: `
-          <img src="Images/HC-1.png" alt="Hunt-Career detail" style="margin-bottom: .8rem; border-radius: 10px;"/>
-          <img src="Images/HC-2.jpg" alt="Hunt-Career detail" style="margin-bottom: .8rem; border-radius: 10px;"/>
-          <img src="Images/HC-3.jpg" alt="Hunt-Career detail" style="margin-bottom: .8rem; border-radius: 10px;"/>
-          <img src="Images/HC-4.jpg" alt="Hunt-Career detail" style="margin-bottom: .8rem; border-radius: 10px;"/>
-          <img src="Images/HC-5.jpg" alt="Hunt-Career detail" style="margin-bottom: .8rem; border-radius: 10px;"/>
-          <img src="Images/HC-6.jpg" alt="Hunt-Career detail" style="margin-bottom: .8rem; border-radius: 10px;"/>
-          <p><strong>Stack:</strong> React, Node.js, Express, MongoDB, Selenium + TestNG</p>
-          <p><strong>Highlights:</strong> POM architecture, Excel-based data-driven tests, Extent Reports, reusable utilities, CI with Jenkins and GitHub Actions.</p>
-          <ul>
-            <li>Reduced manual regression effort by 40% while increasing coverage.</li>
-            <li>Implemented reporting and retry logic for flake reduction.</li>
-            <li>Scalable folder structure with clear separation of concerns.</li>
-          </ul>
-          <p><a href="https://github.com/Pavan8396/Hunt_Career_Testing" target="_blank">GitHub Repository</a></p>
+        images: [
+          'Images/HC-1.png',
+          'Images/HC-2.jpg',
+          'Images/HC-3.jpg',
+          'Images/HC-4.jpg',
+          'Images/HC-5.jpg',
+          'Images/HC-6.jpg'
+        ],
+        content: `
+          <div class="modal-description">
+            <p><strong>Stack:</strong> React, Node.js, Express, MongoDB, Selenium + TestNG</p>
+            <p><strong>Highlights:</strong> POM architecture, Excel-based data-driven tests, Extent Reports, reusable utilities, CI with Jenkins and GitHub Actions.</p>
+            <ul>
+              <li>Reduced manual regression effort by 40% while increasing coverage.</li>
+              <li>Implemented reporting and retry logic for flake reduction.</li>
+              <li>Scalable folder structure with clear separation of concerns.</li>
+            </ul>
+            <p><a href="https://github.com/Pavan8396/Hunt_Career_Testing" target="_blank">GitHub Repository</a></p>
+          </div>
         `
       },
       'cms': {
         title: 'Contact Management System — API Automation',
-        html: `
-          <img src="https://picsum.photos/900/480?random=62" alt="CMS detail" style="margin-bottom: .8rem; border-radius: 10px;"/>
-          <p><strong>Stack:</strong> Cypress (API), Postman; CI-ready suite</p>
-          <p><strong>Highlights:</strong> 95% coverage across Functional, API, Regression; 150+ defects logged in JIRA.</p>
-          <ul>
-            <li>Parameterized test data, environment configs.</li>
-            <li>Robust assertions for status codes and payload validation.</li>
-            <li>Artifacts integrated with CI for dashboards.</li>
-          </ul>
+        images: [],
+        content: `
+          <div class="modal-description">
+            <p><strong>Stack:</strong> Cypress (API), Postman; CI-ready suite</p>
+            <p><strong>Highlights:</strong> 95% coverage across Functional, API, Regression; 150+ defects logged in JIRA.</p>
+            <ul>
+              <li>Parameterized test data, environment configs.</li>
+              <li>Robust assertions for status codes and payload validation.</li>
+              <li>Artifacts integrated with CI for dashboards.</li>
+            </ul>
+          </div>
         `
       },
       'medico-legal': {
         title: 'Medico-Legal Service System — Regression Automation',
-        html: `
-          <img src="https://picsum.photos/900/480?random=63" alt="Medico-Legal detail" style="margin-bottom: .8rem; border-radius: 10px;"/>
-          <p><strong>Stack:</strong> Selenium, TestNG, reporting tools</p>
-          <p><strong>Highlights:</strong> Saved 20+ hours per sprint; 120+ defects logged with 95% closure.</p>
-          <ul>
-            <li>Core regression flows automated: auth, forms, workflows.</li>
-            <li>Stabilized flaky tests with explicit waits and retries.</li>
-            <li>Modular utilities for reusability across suites.</li>
-          </ul>
+        images: [],
+        content: `
+          <div class="modal-description">
+            <p><strong>Stack:</strong> Selenium, TestNG, reporting tools</p>
+            <p><strong>Highlights:</strong> Saved 20+ hours per sprint; 120+ defects logged with 95% closure.</p>
+            <ul>
+              <li>Core regression flows automated: auth, forms, workflows.</li>
+              <li>Stabilized flaky tests with explicit waits and retries.</li>
+              <li>Modular utilities for reusability across suites.</li>
+            </ul>
+          </div>
         `
       }
     };
 
+    // Carousel class
+    class ProjectCarousel {
+      constructor(container, images) {
+        this.container = container;
+        this.images = images;
+        this.currentIndex = 0;
+        this.render();
+        this.bindEvents();
+      }
+
+      render() {
+        if (this.images.length === 0) {
+          this.container.innerHTML = `
+            <div class="no-images">
+              <i class="fa-solid fa-images"></i>
+              <p>No images available for this project</p>
+            </div>
+          `;
+          return;
+        }
+
+        let carouselHTML = `
+          <div class="carousel-container">
+            <div class="carousel-slides">
+              ${this.images.map((src, index) => `
+                <div class="carousel-slide ${index === 0 ? 'active' : ''}" data-slide="${index}">
+                  <img src="${src}" alt="Project image ${index + 1}" loading="lazy" />
+                </div>
+              `).join('')}
+            </div>
+            ${this.images.length > 1 ? `
+              <div class="carousel-nav">
+                <button class="carousel-btn prev-btn">
+                  <i class="fa-solid fa-chevron-left"></i> Previous
+                </button>
+                <button class="carousel-btn next-btn">
+                  Next <i class="fa-solid fa-chevron-right"></i>
+                </button>
+              </div>
+              <div class="carousel-indicators">
+                ${this.images.map((_, index) => `
+                  <span class="carousel-indicator ${index === 0 ? 'active' : ''}" data-slide="${index}"></span>
+                `).join('')}
+              </div>
+              <div class="carousel-counter">
+                ${this.currentIndex + 1} / ${this.images.length}
+              </div>
+            ` : ''}
+          </div>
+        `;
+        
+        this.container.innerHTML = carouselHTML;
+      }
+
+      bindEvents() {
+        if (this.images.length <= 1) return;
+
+        const prevBtn = this.container.querySelector('.prev-btn');
+        const nextBtn = this.container.querySelector('.next-btn');
+        const indicators = this.container.querySelectorAll('.carousel-indicator');
+
+        prevBtn?.addEventListener('click', () => this.prev());
+        nextBtn?.addEventListener('click', () => this.next());
+        
+        indicators.forEach(indicator => {
+          indicator.addEventListener('click', () => {
+            this.goTo(parseInt(indicator.dataset.slide));
+          });
+        });
+      }
+
+      showSlide(index) {
+        const slides = this.container.querySelectorAll('.carousel-slide');
+        const indicators = this.container.querySelectorAll('.carousel-indicator');
+        const counter = this.container.querySelector('.carousel-counter');
+        const prevBtn = this.container.querySelector('.prev-btn');
+        const nextBtn = this.container.querySelector('.next-btn');
+
+        slides.forEach((slide, i) => {
+          slide.classList.toggle('active', i === index);
+        });
+
+        indicators.forEach((indicator, i) => {
+          indicator.classList.toggle('active', i === index);
+        });
+
+        if (counter) {
+          counter.textContent = `${index + 1} / ${this.images.length}`;
+        }
+
+        prevBtn.disabled = index === 0;
+        nextBtn.disabled = index === this.images.length - 1;
+
+        this.currentIndex = index;
+      }
+
+      next() {
+        const nextIndex = (this.currentIndex + 1) % this.images.length;
+        this.showSlide(nextIndex);
+      }
+
+      prev() {
+        const prevIndex = (this.currentIndex - 1 + this.images.length) % this.images.length;
+        this.showSlide(prevIndex);
+      }
+
+      goTo(index) {
+        this.showSlide(index);
+      }
+    }
+
     // Modal logic
     const modal = document.getElementById('projectModal');
     const modalTitle = document.getElementById('modalTitle');
+    const modalTabs = document.getElementById('modalTabs');
     const modalBody = document.getElementById('modalBody');
     const modalClose = document.getElementById('modalClose');
+    let currentCarousel = null;
+    let currentTab = 'images';
+
+    function showTab(tabName) {
+      currentTab = tabName;
+      
+      // Update tab buttons
+      document.querySelectorAll('.modal-tab').forEach(tab => {
+        tab.classList.toggle('active', tab.dataset.tab === tabName);
+      });
+
+      // Show content
+      const imagesContainer = document.getElementById('imagesContainer');
+      const contentContainer = document.getElementById('contentContainer');
+      
+      if (tabName === 'images') {
+        imagesContainer.style.display = 'block';
+        contentContainer.style.display = 'none';
+        imagesContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      } else {
+        imagesContainer.style.display = 'none';
+        contentContainer.style.display = 'block';
+        contentContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
 
     document.querySelectorAll('.project-card').forEach(card => {
       card.addEventListener('click', () => {
         const key = card.getAttribute('data-project');
         const data = projectDetails[key];
         if (!data) return;
+
         modalTitle.textContent = data.title;
-        modalBody.innerHTML = data.html;
-        modal.style.display = 'flex';
+        
+        // Create tabs
+        const hasImages = data.images && data.images.length > 0;
+        modalTabs.innerHTML = `
+          <button class="modal-tab ${hasImages ? '' : 'active'}" data-tab="content">
+            <i class="fa-solid fa-info-circle"></i> Details
+          </button>
+          ${hasImages ? `
+            <button class="modal-tab active" data-tab="images">
+              <i class="fa-solid fa-images"></i> Screenshots (${data.images.length})
+            </button>
+          ` : ''}
+        `;
+
+        // Create tab containers
+        modalBody.innerHTML = `
+          <div id="imagesContainer" style="display: ${hasImages ? 'block' : 'none'};">
+            <div id="carouselContainer"></div>
+          </div>
+          <div id="contentContainer" style="${hasImages ? 'display: none;' : 'display: block;'}" class="modal-description">
+            ${data.content}
+          </div>
+        `;
+
+        // Show modal
         modal.setAttribute('aria-hidden', 'false');
+        modal.style.display = 'flex';
         document.body.style.overflow = 'hidden';
+        modal.focus();
+
+        // Initialize carousel if images exist
+        setTimeout(() => {
+          if (hasImages) {
+            const carouselContainer = document.getElementById('carouselContainer');
+            currentCarousel = new ProjectCarousel(carouselContainer, data.images);
+          }
+          
+          // Bind tab events
+          document.querySelectorAll('.modal-tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+              showTab(tab.dataset.tab);
+            });
+          });
+
+          // Default to content tab for projects without images
+          if (!hasImages) {
+            showTab('content');
+          }
+        }, 150);
       });
     });
 
@@ -500,10 +973,38 @@
       modal.style.display = 'none';
       modal.setAttribute('aria-hidden', 'true');
       document.body.style.overflow = '';
+      currentCarousel = null;
+      currentTab = 'images';
     }
+
     modalClose.addEventListener('click', closeModal);
-    modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
-    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
+    modal.addEventListener('click', (e) => { 
+      if (e.target === modal) closeModal(); 
+    });
+
+    document.addEventListener('keydown', (e) => { 
+      if (e.key === 'Escape' && modal.style.display === 'flex') closeModal(); 
+    });
+
+    // Keyboard navigation for carousel
+    document.addEventListener('keydown', (e) => {
+      if (modal.style.display === 'flex' && currentTab === 'images' && currentCarousel) {
+        if (e.key === 'ArrowLeft') {
+          e.preventDefault();
+          currentCarousel.prev();
+        }
+        if (e.key === 'ArrowRight') {
+          e.preventDefault();
+          currentCarousel.next();
+        }
+      }
+    });
+
+    // Prevent background scroll
+    modal.addEventListener('touchmove', (e) => e.preventDefault(), { passive: false });
+    modal.addEventListener('wheel', (e) => { 
+      if (e.target === modal) e.preventDefault(); 
+    }, { passive: false });
   </script>
 </body>
 </html>
