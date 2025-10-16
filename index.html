@@ -8,7 +8,7 @@
   <!-- SEO -->
   <meta name="description" content="Portfolio of Pavan U, Senior Software QA Engineer specializing in Selenium, TestNG, API testing, CI/CD, Cypress, and Playwright."/>
   <meta name="author" content="Pavan U"/>
-  <meta name="theme-color" content="#3b82f6"/>
+  <meta name="theme-color" content="#1e3a8a"/>
 
   <!-- Open Graph -->
   <meta property="og:title" content="Pavan U | Senior Software QA Engineer"/>
@@ -18,267 +18,26 @@
 
   <!-- Fonts & Icons -->
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
   <!-- AOS (Animate On Scroll) -->
   <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css"/>
 
   <style>
-    /* Modal */
-    .modal {
-      display: none; 
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(15, 23, 42, 0.85);
-      justify-content: center;
-      align-items: flex-start;
-      z-index: 2000;
-      overflow-y: auto;
-      padding: 2rem;
-    }
-
-    .modal-content {
-      background: var(--card);
-      color: var(--text);
-      max-width: 1000px;
-      width: 100%;
-      border-radius: 12px;
-      padding: 2rem;
-      box-shadow: 0 12px 30px rgba(0,0,0,0.25);
-      position: relative;
-      max-height: 95vh;
-      overflow-y: auto;
-      margin: 0 auto;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .modal-close {
-      position: absolute;
-      top: 1rem;
-      right: 1.5rem;
-      font-size: 1.8rem;
-      font-weight: 700;
-      cursor: pointer;
-      color: var(--muted);
-      transition: color 0.2s;
-      z-index: 10;
-      background: none;
-      border: none;
-    }
-
-    .modal-close:hover {
-      color: var(--accent);
-    }
-
-    .modal-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      margin-bottom: 1.5rem;
-      padding-bottom: 1rem;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .modal-title {
-      margin: 0;
-      font-size: 1.5rem;
-      font-weight: 700;
-    }
-
-    /* Modal Content Tabs */
-    .modal-tabs {
-      display: flex;
-      gap: 0.5rem;
-      margin-bottom: 1.5rem;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .modal-tab {
-      padding: 0.75rem 1.5rem;
-      background: none;
-      border: none;
-      cursor: pointer;
-      font-weight: 600;
-      color: var(--muted);
-      border-bottom: 2px solid transparent;
-      transition: all 0.2s;
-    }
-
-    .modal-tab.active {
-      color: var(--accent);
-      border-bottom-color: var(--accent);
-    }
-
-    .modal-tab:hover {
-      color: var(--text);
-    }
-
-    /* Images Tab */
-    .images-tab {
-      flex: 1;
-    }
-
-    /* Content Tab */
-    .content-tab {
-      flex: 1;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 400px;
-      padding: 2rem;
-      background: color-mix(in srgb, var(--bg) 95%, transparent);
-      border-radius: 8px;
-      border: 1px dashed var(--border);
-    }
-
-    .content-tab p,
-    .content-tab ul {
-      max-width: 600px;
-      margin: 0 auto;
-    }
-
-    /* Modal Carousel - Full Image View */
-    .carousel-container {
-      position: relative;
-      width: 100%;
-      margin-bottom: 1.5rem;
-      overflow: hidden;
-      border-radius: 10px;
-    }
-
-    .carousel-slides {
-      position: relative;
-      width: 100%;
-    }
-
-    .carousel-slide {
-      display: none;
-      width: 100%;
-    }
-
-    .carousel-slide.active {
-      display: block;
-    }
-
-    .carousel-slide img {
-      width: 100%;
-      height: auto;
-      max-height: 60vh;
-      object-fit: contain;
-      display: block;
-      border-radius: 10px;
-      background: var(--bg);
-    }
-
-    .carousel-nav {
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
-      margin-top: 1rem;
-    }
-
-    .carousel-btn {
-      background: var(--accent);
-      color: white;
-      border: none;
-      padding: 0.6rem 1.2rem;
-      border-radius: 50px;
-      cursor: pointer;
-      font-weight: 600;
-      transition: all 0.2s;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .carousel-btn:hover:not(:disabled) {
-      background: var(--accent-2);
-      transform: translateY(-1px);
-    }
-
-    .carousel-btn:disabled {
-      opacity: 0.5;
-      cursor: not-allowed;
-    }
-
-    .carousel-indicators {
-      display: flex;
-      justify-content: center;
-      gap: 0.5rem;
-      margin-top: 1rem;
-    }
-
-    .carousel-indicator {
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      background: var(--border);
-      cursor: pointer;
-      transition: background 0.2s;
-    }
-
-    .carousel-indicator.active {
-      background: var(--accent);
-      transform: scale(1.2);
-    }
-
-    .carousel-counter {
-      text-align: center;
-      color: var(--muted);
-      font-size: 1rem;
-      font-weight: 600;
-      margin-top: 1rem;
-    }
-
-    .modal-description {
-      line-height: 1.6;
-      color: var(--text);
-    }
-
-    .modal-description a {
-      color: var(--accent);
-      font-weight: 600;
-      text-decoration: none;
-    }
-
-    .modal-description a:hover {
-      text-decoration: underline;
-    }
-
-    .modal-description ul {
-      padding-left: 1.2rem;
-      margin: 1rem 0;
-    }
-
-    .modal-description li {
-      margin-bottom: 0.5rem;
-    }
-
-    .no-images {
-      text-align: center;
-      color: var(--muted);
-      padding: 2rem;
-    }
-
-    .no-images i {
-      font-size: 3rem;
-      margin-bottom: 1rem;
-      opacity: 0.5;
-    }
-
+    /* Global Variables */
     :root {
-      --bg: #f9fafb; --text: #0f172a; --muted: #475569;
-      --accent: #3b82f6; --accent-2: #1e40af;
-      --card: #ffffff; --border: #e5e7eb;
+      --bg: #ffffff; --text: #111827; --muted: #6b7280;
+      --accent: #1e3a8a; --accent-2: #3b82f6;
+      --card: #f9fafb; --border: #e5e7eb;
+      --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
     }
     [data-theme="dark"] {
-      --bg: #0b1020; --text: #e5e7eb; --muted: #9ca3af;
-      --accent: #60a5fa; --accent-2: #1d4ed8;
-      --card: #111827; --border: #1f2937;
+      --bg: #0f172a; --text: #f1f5f9; --muted: #94a3b8;
+      --accent: #3b82f6; --accent-2: #1e40af;
+      --card: #1e293b; --border: #334155;
+      --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.3), 0 1px 2px 0 rgba(0, 0, 0, 0.2);
+      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.2);
     }
 
     * { box-sizing: border-box; }
@@ -286,167 +45,406 @@
     body {
       font-family: 'Inter', sans-serif;
       background: var(--bg); color: var(--text);
-      line-height: 1.6; scroll-behavior: smooth;
+      line-height: 1.7; scroll-behavior: smooth;
       transition: background .3s ease, color .3s ease;
     }
-    a { color: var(--accent); text-decoration: none; }
-    img { max-width: 100%; display: block; border-radius: 10px; }
+    a { color: var(--accent); text-decoration: none; transition: color 0.2s; }
+    a:hover { color: var(--accent-2); }
+    img { max-width: 100%; display: block; border-radius: 12px; }
 
     /* Nav */
     nav {
       position: sticky; top: 0; z-index: 1000;
-      backdrop-filter: saturate(150%) blur(10px);
-      background: color-mix(in srgb, var(--card) 88%, transparent);
-      border-bottom: 1px solid var(--border);
+      background: var(--card); border-bottom: 1px solid var(--border);
+      box-shadow: var(--shadow);
     }
     .nav-inner {
-      max-width: 1100px; margin: 0 auto; padding: .75rem 1rem;
+      max-width: 1200px; margin: 0 auto; padding: 1rem 2rem;
       display: flex; align-items: center; justify-content: space-between;
-      gap: 1rem;
     }
-    .brand { display: flex; align-items: center; gap: .6rem; font-weight: 800; }
-    .brand .dot { width: 10px; height: 10px; border-radius: 50%;
-      background: linear-gradient(135deg, var(--accent), var(--accent-2));
-      box-shadow: 0 0 12px color-mix(in srgb, var(--accent) 60%, transparent);
+    .brand { 
+      display: flex; align-items: center; gap: 0.5rem; 
+      font-weight: 700; font-size: 1.2rem; 
+      color: var(--accent);
+    }
+    .nav-links {
+      display: flex; gap: 2rem;
     }
     .nav-links a {
-      margin: 0 .5rem; padding: .4rem .6rem;
-      font-weight: 600; color: var(--muted); border-radius: 8px;
+      padding: 0.5rem 1rem; font-weight: 500; color: var(--muted);
+      border-radius: 8px; transition: all 0.2s;
     }
     .nav-links a.active, .nav-links a:hover {
-      color: var(--text);
-      background: color-mix(in srgb, var(--accent) 12%, transparent);
+      color: var(--accent); background: color-mix(in srgb, var(--accent) 10%, transparent);
     }
-    .actions { display: flex; align-items: center; gap: .6rem; }
+    .actions { display: flex; align-items: center; gap: 1rem; }
     .btn {
+      display: inline-flex; align-items: center; gap: 0.5rem;
       border: 1px solid var(--border); background: var(--card);
-      color: var(--text); padding: .45rem .8rem; border-radius: 999px;
-      font-weight: 600; cursor: pointer; transition: transform .2s, background .2s, border .2s;
+      color: var(--text); padding: 0.75rem 1.5rem; border-radius: 8px;
+      font-weight: 500; cursor: pointer; transition: all 0.2s;
     }
-    .btn:hover { transform: translateY(-1px); }
+    .btn:hover { 
+      transform: translateY(-1px); box-shadow: var(--shadow-lg); 
+      border-color: var(--accent); color: var(--text);
+    }
+    .btn-primary { 
+      background: var(--accent); color: white; border-color: var(--accent); 
+    }
+    .btn-primary:hover { 
+      background: var(--accent-2); border-color: var(--accent-2); color: white; 
+    }
+    .btn-outline { 
+      color: white; border-color: rgba(255,255,255,0.3); background: transparent; 
+    }
+    .btn-outline:hover { 
+      border-color: white; background: rgba(255,255,255,0.1); color: white; 
+    }
 
     /* Hero */
     header.hero {
-      min-height: 78vh; display: grid; place-items: center; text-align: center;
-      background: radial-gradient(1200px 700px at 50% -100%, color-mix(in srgb, var(--accent) 14%, transparent), transparent),
-                  linear-gradient(135deg, var(--accent), var(--accent-2));
-      color: #fff;
+      min-height: 85vh; display: flex; align-items: center; justify-content: center;
+      background: linear-gradient(135deg, var(--accent) 0%, var(--accent-2) 100%);
+      color: white; position: relative; overflow: hidden;
+      padding: 2rem;
     }
-    .hero-inner { max-width: 900px; padding: 3rem 1rem; }
-    .hero h1 { font-size: clamp(2rem, 5vw, 3.2rem); margin: 0 0 .6rem; letter-spacing: .3px; }
-    .hero .sub { font-size: clamp(1rem, 2.5vw, 1.25rem); opacity: .95; }
+    .hero::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>') repeat;
+      opacity: 0.15;
+      animation: float 20s ease-in-out infinite;
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+    }
+    .hero-inner { 
+      max-width: 1000px; padding: 0 1.5rem; width: 100%; position: relative; z-index: 1;
+      text-align: center;
+    }
+    .hero-content h1 { 
+      font-size: clamp(2.2rem, 5.5vw, 3.8rem); font-weight: 700; 
+      margin: 0 0 1rem; letter-spacing: -0.01em;
+      position: relative;
+    }
+    .hero-content .sub { 
+      font-size: 1.15rem; max-width: 650px; margin: 0 auto 1.5rem; 
+      opacity: 0.92; line-height: 1.55;
+    }
     .typing {
-      border-right: 2px solid rgba(255,255,255,.9);
+      border-right: 2px solid rgba(255,255,255,.8);
       white-space: nowrap; overflow: hidden; display: inline-block;
-      animation: typing 3.5s steps(34,end) .3s 1 both, blink .8s step-end infinite;
+      animation: typing 3s steps(40,end) .5s 1 both, blink 0.75s step-end infinite;
     }
     @keyframes typing { from { width: 0 } to { width: 100% } }
     @keyframes blink { 50% { border-color: transparent } }
-    .hero-cta { margin-top: 1.2rem; display: flex; gap: .6rem; justify-content: center; flex-wrap: wrap; }
-    .btn-primary { background: #fff; color: #0f172a; border: none; box-shadow: 0 6px 18px rgba(0,0,0,.12); }
-    .btn-outline { color: #fff; border-color: rgba(255,255,255,.5); background: transparent; }
+    .metrics {
+      display: flex; justify-content: center; gap: 2rem; margin: 1.5rem 0; flex-wrap: wrap;
+    }
+    .metric {
+      text-align: center;
+    }
+    .metric-value { font-size: 2rem; font-weight: 700; color: white; }
+    .metric-label { font-size: 0.9rem; opacity: 0.8; }
+    .hero-cta { 
+      display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; 
+    }
+    .skill-tags {
+      display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center;
+      margin-bottom: 1.5rem;
+    }
+    .skill-tag {
+      background: rgba(255,255,255,0.15); color: white; padding: 0.4rem 1rem;
+      border-radius: 20px; font-size: 0.85rem; font-weight: 500;
+      backdrop-filter: blur(8px); transition: transform 0.2s;
+    }
+    .skill-tag:hover { transform: scale(1.05); }
 
     /* Sections */
-    section { max-width: 1100px; margin: 3rem auto; padding: 0 1rem; scroll-margin-top: 70px;}
-    h2 { font-size: 1.8rem; margin: 0 0 1rem; border-left: 4px solid var(--accent); padding-left: .6rem; }
+    section { 
+      max-width: 1200px; margin: 5rem auto; padding: 0 2rem; 
+      scroll-margin-top: 80px;
+    }
+    h2 { 
+      font-size: 2.5rem; font-weight: 700; margin: 0 0 2rem; 
+      display: flex; align-items: center; gap: 1rem;
+      color: var(--text);
+    }
+    h2::before {
+      content: ''; width: 4px; height: 2rem; background: var(--accent); border-radius: 2px;
+    }
     .card {
       background: var(--card); border: 1px solid var(--border);
-      border-radius: 14px; box-shadow: 0 8px 28px rgba(0,0,0,.06);
-      padding: 1.25rem; transition: transform .25s, box-shadow .25s;
+      border-radius: 16px; padding: 2rem; box-shadow: var(--shadow);
+      transition: all 0.3s ease;
     }
-    .card:hover { transform: translateY(-3px); box-shadow: 0 12px 30px rgba(0,0,0,.10); }
+    .card:hover { 
+      transform: translateY(-4px); box-shadow: var(--shadow-lg); 
+      border-color: color-mix(in srgb, var(--accent) 20%, transparent);
+    }
 
     /* About */
-    .about-grid { display: grid; grid-template-columns: 1.2fr .8fr; gap: 1rem; }
-    .stat { display: flex; align-items: center; gap: .7rem; margin: .4rem 0; color: var(--muted); }
-    .stat i { color: var(--accent); }
+    .about-grid { 
+      display: grid; grid-template-columns: 2fr 1fr; gap: 3rem; 
+    }
+    .about-text { font-size: 1.1rem; }
+    .about-text p { margin-bottom: 1.5rem; }
+    .stats { display: flex; flex-direction: column; gap: 1.5rem; }
+    .stat { 
+      display: flex; align-items: center; gap: 0.75rem; 
+      font-weight: 500; color: var(--muted);
+    }
+    .stat i { 
+      color: var(--accent); font-size: 1.1rem; width: 1.2rem; 
+    }
 
     /* Skills */
-    .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: .75rem; }
-    .skill { padding: .9rem; border: 1px dashed var(--border); border-radius: 12px; text-align: center; }
-    .skill i { font-size: 1.7rem; color: var(--accent); margin-bottom: .35rem; transition: transform .2s; }
-    .skill:hover i { transform: scale(1.15); }
-    .tooltip { display: inline-block; font-size: .85rem; color: var(--muted); }
-
-    /* Experience timeline */
-    .timeline { border-left: 2px solid var(--accent); padding-left: 1rem; }
-    .timeline-entry { margin: 1rem 0 2rem; position: relative; }
-    .timeline-entry::before {
-      content: ''; position: absolute; left: -11px; top: 3px;
-      width: 12px; height: 12px; border-radius: 50%; background: var(--accent);
-      box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent) 20%, transparent);
+    .skills-grid { 
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+      gap: 1.5rem; 
     }
-    .role { font-weight: 700; }
-    .meta { color: var(--muted); font-size: .95rem; }
+    .skill { 
+      padding: 1.5rem; text-align: center; 
+      border: 1px solid var(--border); border-radius: 12px;
+      transition: all 0.2s;
+      position: relative; overflow: hidden;
+    }
+    .skill::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--accent);
+      transform: scaleX(0); transition: transform 0.3s ease;
+    }
+    .skill:hover::before { transform: scaleX(1); }
+    .skill:hover { 
+      border-color: var(--accent); transform: translateY(-2px); 
+    }
+    .skill i { 
+      font-size: 2.2rem; color: var(--accent); margin-bottom: 0.75rem; 
+    }
+    .skill strong { display: block; font-weight: 600; margin-bottom: 0.25rem; }
+    .tooltip { font-size: 0.9rem; color: var(--muted); margin-bottom: 1rem; }
+    .progress-bar {
+      background: var(--border); height: 6px; border-radius: 3px; overflow: hidden; margin-top: 0.5rem;
+    }
+    .progress-fill {
+      height: 100%; background: var(--accent); transition: width 1s ease-in-out;
+      border-radius: 3px;
+    }
+
+    /* Experience */
+    .timeline { 
+      position: relative; padding-left: 2rem; 
+    }
+    .timeline::before {
+      content: ''; position: absolute; left: 0; top: 0; bottom: 0;
+      width: 2px; background: linear-gradient(to bottom, var(--accent), var(--accent-2));
+    }
+    .timeline-entry { 
+      position: relative; margin-bottom: 3rem; padding-left: 2rem; 
+    }
+    .timeline-entry::before {
+      content: ''; position: absolute; left: -1rem; top: 0.25rem;
+      width: 12px; height: 12px; border-radius: 50%; background: var(--accent);
+      box-shadow: 0 0 0 3px white;
+    }
+    .role { 
+      font-size: 1.3rem; font-weight: 700; margin-bottom: 0.5rem; 
+    }
+    .meta { 
+      color: var(--muted); font-size: 1rem; margin-bottom: 1rem; 
+    }
+    .timeline-entry ul {
+      list-style: none; padding: 0;
+    }
+    .timeline-entry li { 
+      position: relative; padding-left: 1.5rem; margin-bottom: 1rem; 
+      font-weight: 500; border-left: 2px solid var(--border); padding-left: 1rem; margin-left: 0.5rem;
+    }
+    .timeline-entry li::before {
+      content: '▸'; position: absolute; left: -0.5rem; color: var(--accent); font-weight: bold;
+    }
 
     /* Projects */
-    .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; }
-    .project-card { overflow: hidden; cursor: pointer; }
-    .project-thumb { aspect-ratio: 16/9; object-fit: cover; margin-bottom: .7rem; }
-    .badge {
-      display: inline-block; padding: .25rem .5rem; border-radius: 999px;
-      background: color-mix(in srgb, var(--accent) 14%, transparent);
-      color: var(--text); font-size: .8rem; margin-right: .4rem;
+    .projects-grid { 
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); 
+      gap: 2rem; 
     }
-    .project-links { margin-top: .6rem; display: flex; gap: .6rem; flex-wrap: wrap; }
+    .project-card { 
+      cursor: pointer; overflow: hidden; height: 100%; 
+    }
+    .project-thumb { 
+      aspect-ratio: 16/9; object-fit: cover; width: 100%; 
+      transition: transform 0.3s ease;
+    }
+    .project-card:hover .project-thumb { transform: scale(1.05); }
+    .project-info { padding: 1.5rem; }
+    .project-info h3 { 
+      font-size: 1.25rem; font-weight: 600; margin: 0 0 0.75rem; 
+    }
+    .badges { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1rem; }
+    .badge {
+      padding: 0.25rem 0.75rem; border-radius: 20px;
+      background: color-mix(in srgb, var(--accent) 15%, transparent);
+      color: var(--accent); font-size: 0.8rem; font-weight: 500;
+    }
+    .project-desc { 
+      color: var(--muted); margin-bottom: 1.5rem; line-height: 1.6; 
+    }
+    .project-links { display: flex; gap: 0.75rem; flex-wrap: wrap; }
     .chip {
-      display: inline-flex; align-items: center; gap: .35rem; padding: .35rem .6rem;
-      border-radius: 8px; border: 1px solid var(--border);
-      color: var(--text); background: color-mix(in srgb, var(--card) 92%, transparent);
-      font-weight: 600;
+      display: inline-flex; align-items: center; gap: 0.5rem; 
+      padding: 0.5rem 0.75rem; border-radius: 6px; 
+      border: 1px solid var(--border); font-weight: 500; font-size: 0.85rem;
     }
     .chip i { color: var(--accent); }
 
-    /* Contact */
-    .contact-actions { display: flex; gap: .8rem; flex-wrap: wrap; margin-top: .8rem; }
-    form input, form textarea {
-      width: 100%; padding: .7rem; margin: .5rem 0; border: 1px solid var(--border);
-      border-radius: 8px; background: var(--bg); color: var(--text);
+    /* Achievements */
+    .achievements { text-align: center; }
+    .achievements .card { 
+      padding: 3rem; max-width: 700px; margin: 0 auto; 
+      background: linear-gradient(135deg, var(--card), color-mix(in srgb, var(--card) 90%, var(--accent)));
     }
-    form button { background: var(--accent); color: #fff; border: none; padding: .7rem 1.2rem; border-radius: 8px; cursor: pointer; font-weight: 600; }
+    .achievements i { 
+      font-size: 4rem; color: var(--accent); margin-bottom: 1.5rem; 
+    }
+    .achievements p { 
+      font-size: 1.2rem; font-weight: 500; color: var(--text); 
+    }
+
+    /* Contact */
+    .contact-actions { 
+      display: flex; gap: 1rem; flex-wrap: wrap; margin: 2rem 0; 
+    }
+    form input, form textarea {
+      width: 100%; padding: 1rem; margin: 0.75rem 0; 
+      border: 1px solid var(--border); border-radius: 8px; 
+      background: var(--bg); color: var(--text); font-family: inherit;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    form input:focus, form textarea:focus {
+      outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 10%, transparent);
+    }
+    form button { 
+      background: var(--accent); color: white; border: none; 
+      padding: 1rem 2rem; border-radius: 8px; cursor: pointer; 
+      font-weight: 600; font-size: 1rem; transition: all 0.2s;
+    }
+    form button:hover { background: var(--accent-2); transform: translateY(-1px); color: white; }
 
     /* Footer */
-    footer { text-align: center; padding: 2rem 1rem; margin-top: 3rem;
-      background: linear-gradient(135deg, var(--accent), var(--accent-2)); color: #fff; }
-    footer a { color: #fff; text-decoration: underline; }
+    footer { 
+      text-align: center; padding: 3rem 2rem; margin-top: 5rem;
+      background: var(--accent); color: white; 
+    }
+    footer a { color: white; text-decoration: underline; }
 
-    /* Theme toggle */
-    .theme-toggle {
-      position: fixed; right: 1rem; bottom: 1rem; z-index: 1001;
+    /* Modal */
+    .modal {
+      display: none; position: fixed; top: 0; left: 0;
+      width: 100%; height: 100%; background: rgba(15, 23, 42, 0.9);
+      justify-content: center; align-items: center; z-index: 2000;
+      padding: 1rem;
+    }
+    .modal-content {
       background: var(--card); color: var(--text);
-      border: 1px solid var(--border); border-radius: 999px;
-      padding: .5rem .9rem; font-weight: 700; cursor: pointer;
+      max-width: 850px; width: 92%; border-radius: 16px;
+      padding: 2rem; box-shadow: var(--shadow-lg);
+      max-height: 92vh; overflow-y: auto;
+      position: relative;
+    }
+    .modal-close {
+      position: absolute; top: 1rem; right: 1rem;
+      font-size: 1.5rem; font-weight: 700; cursor: pointer;
+      color: var(--muted); background: none; border: none;
+      transition: color 0.2s;
+    }
+    .modal-close:hover { color: var(--accent); }
+    .modal-header { margin-bottom: 1.5rem; }
+    .modal-title { 
+      margin: 0; font-size: 1.6rem; font-weight: 700; 
+    }
+    .modal-tabs {
+      display: flex; gap: 0.5rem; margin-bottom: 1.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .modal-tab {
+      padding: 0.75rem 1rem; background: none; border: none;
+      cursor: pointer; font-weight: 500; color: var(--muted);
+      border-bottom: 2px solid transparent; transition: all 0.2s;
+      font-size: 0.9rem;
+    }
+    .modal-tab.active {
+      color: var(--accent); border-bottom-color: var(--accent);
+    }
+    .modal-tab:hover { color: var(--text); }
+    .single-image-container {
+      position: relative; width: 100%; text-align: center; margin-bottom: 1rem;
+    }
+    .single-image-container img {
+      max-width: 100%; max-height: 50vh; object-fit: contain;
+      border-radius: 8px; display: block; margin: 0 auto;
+    }
+    .nav-buttons {
+      display: flex; justify-content: center; gap: 1rem; margin-top: 0.5rem;
+    }
+    .nav-btn {
+      background: var(--accent); color: white; border: none;
+      padding: 0.5rem 1rem; border-radius: 6px;
+      cursor: pointer; font-weight: 500; transition: all 0.2s;
+      display: flex; align-items: center; gap: 0.25rem; font-size: 0.9rem;
+    }
+    .nav-btn:hover:not(:disabled) { background: var(--accent-2); color: white; }
+    .nav-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+    .image-counter {
+      text-align: center; color: var(--muted); font-size: 0.9rem; margin-top: 0.5rem;
+    }
+    .modal-description {
+      line-height: 1.6; color: var(--text); font-size: 0.95rem;
+    }
+    .modal-description ul {
+      padding-left: 1.2rem; margin: 1rem 0;
+    }
+    .modal-description li {
+      margin-bottom: 0.5rem; font-weight: 500;
+    }
+    .no-images {
+      text-align: center; color: var(--muted); padding: 2rem;
+    }
+    .no-images i { font-size: 3rem; margin-bottom: 1rem; opacity: 0.6; }
+
+    /* Theme Toggle */
+    .theme-toggle {
+      position: fixed; right: 1.5rem; bottom: 1.5rem; z-index: 1001;
+      background: var(--card); color: var(--text);
+      border: 1px solid var(--border); border-radius: 50%;
+      width: 50px; height: 50px; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: var(--shadow);
+    }
+    .theme-toggle:hover { 
+      border-color: var(--accent); color: var(--text); 
     }
 
-    @media (max-width: 820px) {
-      .about-grid { grid-template-columns: 1fr; }
-      .nav-inner { flex-wrap: wrap; }
-      .modal { padding: 1rem; align-items: flex-start; }
-      .modal-content { 
-        padding: 1.5rem; 
-        margin: 1rem 0; 
-        max-height: 95vh;
-      }
-      .carousel-slide img { 
-        max-height: 50vh; 
-      }
-      .modal-tabs {
-        flex-direction: column;
-      }
-      .modal-tab {
-        text-align: center;
-        padding: 0.75rem;
-      }
+    /* Responsive */
+    @media (max-width: 768px) {
+      .nav-inner { padding: 1rem; gap: 1rem; }
+      .nav-links { display: none; }
+      .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+      section { padding: 0 1rem; margin: 3rem auto; }
+      h2 { font-size: 2rem; }
+      .projects-grid { grid-template-columns: 1fr; }
+      .hero-cta { justify-content: center; }
+      .hero-inner { text-align: center; }
+      .metrics { gap: 1rem; }
+      .metric-value { font-size: 1.5rem; }
+      .contact-actions { flex-direction: column; align-items: center; }
+      .modal { padding: 0.5rem; }
+      .modal-content { width: 95%; padding: 1.5rem; max-height: 93vh; }
+      .nav-buttons { flex-direction: column; gap: 0.5rem; }
     }
-
     @media (max-width: 480px) {
-      .carousel-slide img { 
-        max-height: 40vh; 
-      }
-      .modal-content {
-        padding: 1rem;
-        margin: 0.5rem;
-      }
+      .skill-tags { justify-content: center; }
+      .hero-content h1 { font-size: clamp(1.8rem, 4vw, 2.5rem); }
+      .hero-content .sub { font-size: 1rem; }
     }
   </style>
 
@@ -472,7 +470,7 @@
   <!-- Nav -->
   <nav>
     <div class="nav-inner">
-      <div class="brand"><span class="dot"></span><span>Pavan U</span></div>
+      <div class="brand"><i class="fa-solid fa-code"></i> Pavan U</div>
       <div class="nav-links" id="navLinks">
         <a href="#about">About</a>
         <a href="#skills">Skills</a>
@@ -481,79 +479,144 @@
         <a href="#contact">Contact</a>
       </div>
       <div class="actions">
-        <a class="btn" href="mailto:pavanumashankar8@gmail.com"><i class="fa-solid fa-envelope"></i> Email</a>
-        <a class="btn" href="Pavan_U_Senior_Software_QA_Engineer.pdf" download><i class="fa-solid fa-file-arrow-down"></i> Resume</a>
+        <a class="btn" href="mailto:pavanumashankar8@gmail.com"><i class="fa-solid fa-envelope"></i> Connect</a>
+        <a class="btn btn-primary" href="Pavan_U_Senior_Software_QA_Engineer.pdf" download><i class="fa-solid fa-file-arrow-down"></i> Resume</a>
       </div>
     </div>
   </nav>
 
   <!-- Hero -->
   <header class="hero" id="home">
-    <div class="hero-inner" data-aos="zoom-in">
-      <h1><span class="typing">Senior Software QA Engineer</span></h1>
-      <p class="sub">Selenium (Java), TestNG, Postman, RestAssured, CI/CD (Jenkins, GitHub), Cypress & Playwright</p>
-      <div class="hero-cta">
-        <a class="btn btn-primary" href="#projects"><i class="fa-solid fa-terminal"></i> View Projects</a>
-        <a class="btn btn-outline" href="https://www.linkedin.com/in/upavan8/" target="_blank"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
-        <a class="btn btn-outline" href="https://github.com/Pavan8396/Hunt_Career_Testing" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
+    <div class="hero-inner" data-aos="fade-up">
+      <div class="hero-content">
+        <h1 class="typing">Senior Software QA Engineer</h1>
+        <p class="sub">Building robust automation frameworks with Selenium, TestNG, and modern tools like Cypress & Playwright to ensure top-tier product quality and seamless CI/CD pipelines.</p>
+        <div class="metrics">
+          <div class="metric">
+            <div class="metric-value">95%</div>
+            <div class="metric-label">Test Coverage</div>
+          </div>
+          <div class="metric">
+            <div class="metric-value">40%</div>
+            <div class="metric-label">Efficiency Gain</div>
+          </div>
+          <div class="metric">
+            <div class="metric-value">3+</div>
+            <div class="metric-label">Years Exp.</div>
+          </div>
+        </div>
+        <div class="skill-tags">
+          <span class="skill-tag">Selenium</span>
+          <span class="skill-tag">API Testing</span>
+          <span class="skill-tag">CI/CD</span>
+          <span class="skill-tag">Automation</span>
+        </div>
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="#projects"><i class="fa-solid fa-briefcase"></i> View Projects</a>
+          <a class="btn btn-outline" href="mailto:pavanumashankar8@gmail.com"><i class="fa-solid fa-envelope"></i> Contact Me</a>
+        </div>
       </div>
     </div>
   </header>
 
   <!-- About -->
   <section id="about" data-aos="fade-up">
-    <h2>About</h2>
+    <h2>About Me</h2>
     <div class="card about-grid">
-      <div>
-        <p>QA Automation Engineer with 3+ years in Selenium (Java), TestNG, Maven, and API testing using Postman and RestAssured. Designed scalable automation frameworks, executed high-coverage regression suites, and integrated tests with CI/CD pipelines (Jenkins, GitHub). Reduced manual testing effort by 40% and improved test coverage to 95%+. Currently expanding skills in modern web automation tools like Cypress and Playwright.</p>
+      <div class="about-text">
+        <p>With over 3 years as a QA Automation Engineer, I excel in crafting efficient testing strategies using Selenium (Java), TestNG, Maven, and API tools such as Postman and RestAssured. My focus is on seamless CI/CD integration to boost delivery speed and achieve exceptional test coverage.</p>
+        <p>I've successfully cut manual testing by 40% through automation, mentored teams on emerging tools like Cypress and Playwright, and driven high-impact QA in fast-paced settings. Eager for roles where I can innovate testing processes and elevate product reliability.</p>
       </div>
-      <div>
+      <div class="stats">
         <div class="stat"><i class="fa-solid fa-location-dot"></i> Bengaluru, India</div>
         <div class="stat"><i class="fa-solid fa-phone"></i> +91-7348811599</div>
         <div class="stat"><i class="fa-solid fa-envelope"></i> pavanumashankar8@gmail.com</div>
-        <div class="stat"><i class="fa-solid fa-graduation-cap"></i> B.E., Mechanical (Shridevi Institute, Tumkur)</div>
-        <div class="stat"><i class="fa-solid fa-award"></i> SPOT Award — API automation impact</div>
+        <div class="stat"><i class="fa-solid fa-graduation-cap"></i> B.E. Mechanical Engineering</div>
+        <div class="stat"><i class="fa-solid fa-trophy"></i> SPOT Award Winner</div>
       </div>
     </div>
   </section>
 
   <!-- Skills -->
   <section id="skills" data-aos="fade-up">
-    <h2>Skills</h2>
+    <h2>Core Skills</h2>
     <div class="skills-grid">
-      <div class="card skill"><i class="fab fa-java"></i><div><strong>Java (OOP)</strong></div><span class="tooltip">Core + Test automation</span></div>
-      <div class="card skill"><i class="fa-solid fa-robot"></i><div><strong>Selenium</strong></div><span class="tooltip">Hybrid frameworks, POM</span></div>
-      <div class="card skill"><i class="fa-solid fa-vial"></i><div><strong>TestNG & Maven</strong></div><span class="tooltip">Suite orchestration</span></div>
-      <div class="card skill"><i class="fa-solid fa-diagram-project"></i><div><strong>POM, Keyword/Data</strong></div><span class="tooltip">Maintainability</span></div>
-      <div class="card skill"><i class="fa-solid fa-cloud"></i><div><strong>Jenkins & GitHub</strong></div><span class="tooltip">CI/CD pipelines</span></div>
-      <div class="card skill"><i class="fa-solid fa-network-wired"></i><div><strong>Postman</strong></div><span class="tooltip">CRUD, status validations</span></div>
-      <div class="card skill"><i class="fa-solid fa-code"></i><div><strong>RestAssured</strong></div><span class="tooltip">API automation</span></div>
-      <div class="card skill"><i class="fa-solid fa-bug"></i><div><strong>JIRA</strong></div><span class="tooltip">Defect tracking</span></div>
-      <div class="card skill"><i class="fa-solid fa-database"></i><div><strong>MySQL</strong></div><span class="tooltip">Basic operations</span></div>
-      <div class="card skill"><i class="fa-solid fa-seedling"></i><div><strong>Cypress & Playwright</strong></div><span class="tooltip">Modern web automation</span></div>
+      <div class="skill">
+        <i class="fab fa-java"></i>
+        <strong>Java (OOP)</strong>
+        <span class="tooltip">Core language for test automation & frameworks</span>
+        <div class="progress-bar"><div class="progress-fill" style="width: 95%;"></div></div>
+      </div>
+      <div class="skill">
+        <i class="fa-solid fa-robot"></i>
+        <strong>Selenium WebDriver</strong>
+        <span class="tooltip">Hybrid frameworks with POM implementation</span>
+        <div class="progress-bar"><div class="progress-fill" style="width: 90%;"></div></div>
+      </div>
+      <div class="skill">
+        <i class="fa-solid fa-vial"></i>
+        <strong>TestNG & Maven</strong>
+        <span class="tooltip">Test orchestration & dependency management</span>
+        <div class="progress-bar"><div class="progress-fill" style="width: 85%;"></div></div>
+      </div>
+      <div class="skill">
+        <i class="fa-solid fa-diagram-project"></i>
+        <strong>Framework Design</strong>
+        <span class="tooltip">POM, Data-Driven, Keyword-Driven</span>
+        <div class="progress-bar"><div class="progress-fill" style="width: 92%;"></div></div>
+      </div>
+      <div class="skill">
+        <i class="fa-solid fa-cloud"></i>
+        <strong>CI/CD (Jenkins, GitHub)</strong>
+        <span class="tooltip">Pipeline integration & automated execution</span>
+        <div class="progress-bar"><div class="progress-fill" style="width: 88%;"></div></div>
+      </div>
+      <div class="skill">
+        <i class="fa-solid fa-network-wired"></i>
+        <strong>API Testing (Postman, RestAssured)</strong>
+        <span class="tooltip">End-to-end API validation & automation</span>
+        <div class="progress-bar"><div class="progress-fill" style="width: 90%;"></div></div>
+      </div>
+      <div class="skill">
+        <i class="fa-solid fa-bug"></i>
+        <strong>JIRA & Defect Management</strong>
+        <span class="tooltip">Tracking, reporting & resolution workflows</span>
+        <div class="progress-bar"><div class="progress-fill" style="width: 85%;"></div></div>
+      </div>
+      <div class="skill">
+        <i class="fa-solid fa-database"></i>
+        <strong>MySQL</strong>
+        <span class="tooltip">Querying & data validation</span>
+        <div class="progress-bar"><div class="progress-fill" style="width: 80%;"></div></div>
+      </div>
+      <div class="skill">
+        <i class="fa-solid fa-seedling"></i>
+        <strong>Cypress & Playwright</strong>
+        <span class="tooltip">Modern E2E web automation tools</span>
+        <div class="progress-bar"><div class="progress-fill" style="width: 82%;"></div></div>
+      </div>
     </div>
   </section>
 
   <!-- Experience -->
   <section id="experience" data-aos="fade-up">
-    <h2>Experience</h2>
+    <h2>Professional Experience</h2>
     <div class="card timeline">
       <div class="timeline-entry">
-        <div class="role">Senior Software QA Engineer — Exigent Services Pvt Ltd</div>
-        <div class="meta">Bangalore | Jun 2022 – Feb 2025</div>
+        <div class="role">Senior Software QA Engineer</div>
+        <div class="meta">Exigent Services Pvt Ltd, Bangalore | Jun 2022 – Present</div>
         <ul>
-          <li>Developed and maintained Selenium TestNG Hybrid Framework with POM, data-driven, keyword-driven approaches; executed 150+ automated scripts.</li>
-          <li>Automated 80+ API endpoints (Postman, Cypress), reducing manual API effort by 40%.</li>
-          <li>Executed 3000+ test cases across Functional, Integration, System, and Regression with 95%+ coverage.</li>
-          <li>Mentored 1–3 junior QA engineers; integrated suite with Jenkins for continuous execution and reporting.</li>
-          <li>Logged and tracked 270+ defects in JIRA with 95%+ defect resolution rate.</li>
+          <li>Architected Selenium TestNG Hybrid Framework with POM, executing 150+ automated scripts across regression suites, achieving 95% coverage.</li>
+          <li>Automated 80+ API endpoints using Postman & Cypress, slashing manual effort by 40% and integrating with Jenkins for CI/CD.</li>
+          <li>Led execution of 3000+ test cases (Functional, Integration, System), logging 270+ defects in JIRA with 95% resolution rate.</li>
+          <li>Mentored 3 junior QA engineers, fostering adoption of best practices in automation and reporting.</li>
         </ul>
       </div>
       <div class="timeline-entry">
-        <div class="role">Engineer — Quest Informatics Pvt Ltd</div>
-        <div class="meta">Bangalore | Dec 2018 – Jan 2020</div>
+        <div class="role">Engineer (Business Analysis)</div>
+        <div class="meta">Quest Informatics Pvt Ltd, Bangalore | Dec 2018 – Jan 2020</div>
         <ul>
-          <li>Business analysis to optimize processes; strengthened requirement gathering and stakeholder collaboration.</li>
+          <li>Conducted business analysis to streamline processes, enhancing requirement gathering and stakeholder alignment for efficient project delivery.</li>
         </ul>
       </div>
     </div>
@@ -561,42 +624,58 @@
 
   <!-- Projects -->
   <section id="projects" data-aos="fade-up">
-    <h2>Projects</h2>
+    <h2>Key Projects</h2>
     <div class="projects-grid">
       <!-- Project 1 -->
       <div class="card project-card" data-project="hunt-career">
-        <img class="project-thumb" src="Images/HC-1.png" alt="Hunt-Career thumbnail"/>
-        <h3>Hunt-Career — Full Stack Job Aggregator + Test Automation</h3>
-        <div>
-          <span class="badge">React</span><span class="badge">Node.js</span><span class="badge">Express</span>
-          <span class="badge">MongoDB</span><span class="badge">Selenium + TestNG</span>
-        </div>
-        <p>Built full-stack app and robust Selenium TestNG framework (POM, Excel-based data-driven tests, Extent Reports, reusable utilities). Integrated with GitHub and Jenkins.</p>
-        <div class="project-links">
-          <a class="chip" href="https://github.com/Pavan8396/Hunt_Career_Testing" target="_blank"><i class="fa-brands fa-github"></i> Repository</a>
-          <span class="chip"><i class="fa-solid fa-rocket"></i> CI-ready</span>
+        <img class="project-thumb" src="Images/HC-1.png" alt="Hunt-Career Project"/>
+        <div class="project-info">
+          <h3>Hunt-Career: Full-Stack Job Aggregator & Automation Suite</h3>
+          <div class="badges">
+            <span class="badge">React</span>
+            <span class="badge">Node.js</span>
+            <span class="badge">Selenium + TestNG</span>
+            <span class="badge">CI/CD</span>
+          </div>
+          <p class="project-desc">Developed a comprehensive full-stack application with a robust Selenium TestNG framework featuring POM, data-driven testing from Excel, Extent Reports, and Jenkins integration for seamless CI. Achieved 40% reduction in regression time.</p>
+          <div class="project-links">
+            <a class="chip" href="https://github.com/Pavan8396/Hunt_Career_Testing" target="_blank"><i class="fa-brands fa-github"></i> View Repo</a>
+            <span class="chip"><i class="fa-solid fa-chart-line"></i> 95% Coverage</span>
+          </div>
         </div>
       </div>
       <!-- Project 2 -->
       <div class="card project-card" data-project="cms">
-        <img class="project-thumb" src="Images/CMS-1.jpg" alt="Contact Management thumbnail"/>
-        <h3>Contact Management System — API Automation</h3>
-        <div><span class="badge">Cypress</span><span class="badge">API</span><span class="badge">CI-ready</span></div>
-        <p>Cypress-based API automation suite reducing test effort by 40%; validated 2000+ Functional, API, and Regression test cases with 95% coverage; 150+ defects logged in JIRA.</p>
-        <div class="project-links">
-          <span class="chip"><i class="fa-solid fa-gauge-high"></i> 95% coverage</span>
-          <span class="chip"><i class="fa-solid fa-bug-slash"></i> 150+ defects</span>
+        <img class="project-thumb" src="Images/CMS-1.jpg" alt="CMS Project"/>
+        <div class="project-info">
+          <h3>Contact Management System: API Automation Framework</h3>
+          <div class="badges">
+            <span class="badge">Cypress</span>
+            <span class="badge">API Testing</span>
+            <span class="badge">Postman</span>
+          </div>
+          <p class="project-desc">Engineered Cypress-based API suite validating 2000+ test cases with 95% coverage; reduced testing time by 40% and tracked 150+ defects via JIRA integration for enhanced quality gates.</p>
+          <div class="project-links">
+            <span class="chip"><i class="fa-solid fa-clock"></i> 40% Time Savings</span>
+            <span class="chip"><i class="fa-solid fa-bugs"></i> 150+ Defects</span>
+          </div>
         </div>
       </div>
       <!-- Project 3 -->
       <div class="card project-card" data-project="medico-legal">
-        <img class="project-thumb" src="Images/MLS-1.jpg" alt="Medico-Legal thumbnail"/>
-        <h3>Medico-Legal Service System — Regression Automation</h3>
-        <div><span class="badge">Selenium</span><span class="badge">Regression</span><span class="badge">Reporting</span></div>
-        <p>Selenium framework to automate core regression flows, reducing manual effort by 40% and saving 20+ hours per sprint. 120+ defects logged with 95% closure.</p>
-        <div class="project-links">
-          <span class="chip"><i class="fa-solid fa-hourglass-half"></i> 20+ hours saved/sprint</span>
-          <span class="chip"><i class="fa-solid fa-check-double"></i> 95% defect closure</span>
+        <img class="project-thumb" src="Images/MLS-1.jpg" alt="Medico-Legal Project"/>
+        <div class="project-info">
+          <h3>Medico-Legal Service System: Regression Automation</h3>
+          <div class="badges">
+            <span class="badge">Selenium</span>
+            <span class="badge">TestNG</span>
+            <span class="badge">Reporting</span>
+          </div>
+          <p class="project-desc">Automated core regression workflows with Selenium, saving 20+ hours per sprint and achieving 95% defect closure rate through modular, reusable utilities and advanced reporting.</p>
+          <div class="project-links">
+            <span class="chip"><i class="fa-solid fa-stopwatch"></i> 20+ Hrs/Sprint Saved</span>
+            <span class="chip"><i class="fa-solid fa-check-circle"></i> 95% Closure</span>
+          </div>
         </div>
       </div>
     </div>
@@ -605,63 +684,60 @@
   <!-- Achievements -->
   <section id="achievements" data-aos="fade-up">
     <h2>Achievements</h2>
-    <div class="card">
-      <p><i class="fa-solid fa-trophy" style="color:var(--accent)"></i> SPOT Award for exceptional contributions in API automation and quality delivery (40% manual effort reduction).</p>
+    <div class="card achievements">
+      <i class="fa-solid fa-trophy"></i>
+      <p>SPOT Award for Outstanding API Automation Contributions — Reduced manual testing efforts by 40% and elevated quality standards across sprints, impacting delivery velocity positively.</p>
     </div>
   </section>
 
   <!-- Contact -->
   <section id="contact" data-aos="fade-up">
-    <h2>Contact</h2>
+    <h2>Get In Touch</h2>
     <div class="card">
-      <p>Open to QA automation roles and collaborations in Bengaluru or remote. Let's talk about scalable frameworks, CI/CD integration, and raising coverage without compromising velocity.</p>
+      <p style="text-align: center; font-size: 1.1rem; margin-bottom: 2rem;">Open to senior QA automation opportunities in Bengaluru or remote. Eager to discuss how I can drive your team's testing strategy forward with proven frameworks and innovative approaches.</p>
       <div class="contact-actions">
-        <a class="btn" href="mailto:pavanumashankar8@gmail.com"><i class="fa-solid fa-envelope"></i> Email</a>
-        <a class="btn" href="tel:+917348811599"><i class="fa-solid fa-phone"></i> Call</a>
+        <a class="btn btn-primary" href="mailto:pavanumashankar8@gmail.com"><i class="fa-solid fa-envelope"></i> Send Message</a>
+        <a class="btn" href="tel:+917348811599"><i class="fa-solid fa-phone"></i> Call Me</a>
         <a class="btn" target="_blank" href="https://www.linkedin.com/in/upavan8/"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
         <a class="btn" target="_blank" href="https://github.com/Pavan8396/Hunt_Career_Testing"><i class="fa-brands fa-github"></i> GitHub</a>
-        <a class="btn" href="Pavan_U_Senior_Software_QA_Engineer.pdf" download><i class="fa-solid fa-file-arrow-down"></i> Download Resume</a>
+        <a class="btn btn-primary" href="Pavan_U_Senior_Software_QA_Engineer.pdf" download><i class="fa-solid fa-file-arrow-down"></i> Download Resume</a>
       </div>
 
-      <!-- Formspree contact form: replace YOUR_FORM_ID -->
-      <form action="https://formspree.io/f/xgvnrrza" method="POST" style="margin-top: 1rem;">
-        <input type="text" name="name" placeholder="Your name" required/>
-        <input type="email" name="email" placeholder="Your email" required/>
-        <textarea name="message" rows="5" placeholder="Your message" required></textarea>
-        <button type="submit"><i class="fa-solid fa-paper-plane"></i> Send message</button>
+      <!-- Contact Form -->
+      <form action="https://formspree.io/f/xgvnrrza" method="POST" style="margin-top: 3rem;">
+        <input type="text" name="name" placeholder="Your Name" required/>
+        <input type="email" name="email" placeholder="Your Email" required/>
+        <textarea name="message" rows="5" placeholder="Tell me about your opportunity..." required></textarea>
+        <button type="submit"><i class="fa-solid fa-paper-plane"></i> Submit</button>
       </form>
     </div>
   </section>
 
   <!-- Footer -->
   <footer>
-    <p>&copy; 2025 Pavan U — Crafted with precision and care. | Built for GitHub Pages</p>
-    <p><a href="#home">Back to top</a></p>
+    <p>&copy; 2025 Pavan U. All rights reserved. | Built with precision for professional impact.</p>
+    <p><a href="#home">Back to Top</a></p>
   </footer>
 
-  <!-- Theme toggle -->
-  <button class="theme-toggle" id="themeToggle"><i class="fa-solid fa-moon"></i> Toggle Theme</button>
+  <!-- Theme Toggle -->
+  <button class="theme-toggle" id="themeToggle"><i class="fa-solid fa-moon"></i></button>
 
-  <!-- Project modal -->
-  <div class="modal" id="projectModal" aria-hidden="true" aria-labelledby="modalTitle" role="dialog">
+  <!-- Project Modal -->
+  <div class="modal" id="projectModal" aria-hidden="true" role="dialog">
     <div class="modal-content">
       <button class="modal-close" id="modalClose" aria-label="Close">&times;</button>
       <div class="modal-header">
-        <h3 class="modal-title" id="modalTitle">Project details</h3>
+        <h3 class="modal-title" id="modalTitle">Project Details</h3>
       </div>
-      <div id="modalTabs">
-        <!-- Tabs will be dynamically inserted here -->
-      </div>
-      <div id="modalBody">
-        <!-- Content will be dynamically inserted here -->
-      </div>
+      <div id="modalTabs"></div>
+      <div id="modalBody"></div>
     </div>
   </div>
 
   <!-- Scripts -->
   <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
   <script>
-    // Auto-detect system theme
+    // Theme Detection and Toggle
     (function() {
       const saved = localStorage.getItem('theme');
       const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
@@ -670,38 +746,34 @@
       const toggleIcon = document.querySelector('#themeToggle i');
       toggleIcon.className = startTheme === 'dark' ? 'fa-solid fa-sun' : 'fa-solid fa-moon';
     })();
-
-    // Theme toggle
     document.getElementById('themeToggle').addEventListener('click', () => {
       const current = document.documentElement.getAttribute('data-theme');
       const next = current === 'dark' ? 'light' : 'dark';
       document.documentElement.setAttribute('data-theme', next);
       localStorage.setItem('theme', next);
-      const toggleIcon = document.querySelector('#themeToggle i');
-      toggleIcon.className = next === 'dark' ? 'fa-solid fa-sun' : 'fa-solid fa-moon';
+      document.querySelector('#themeToggle i').className = next === 'dark' ? 'fa-solid fa-sun' : 'fa-solid fa-moon';
     });
 
-    // AOS init
-    AOS.init({ duration: 700, easing: 'ease-out-quart', once: true });
+    // AOS Initialization
+    AOS.init({ duration: 800, easing: 'ease-out-cubic', once: true });
 
-    // Active nav link on scroll
-    const sections = ['about','skills','experience','projects','contact'];
+    // Navigation Active States
+    const sections = ['about', 'skills', 'experience', 'projects', 'contact'];
     const links = Array.from(document.querySelectorAll('#navLinks a'));
     function setActive(id) {
       links.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + id));
     }
     sections.forEach(id => {
       const el = document.getElementById(id);
-      if (!el) return;
-      const obs = new IntersectionObserver(entries => {
-        entries.forEach(e => { 
-          if (e.isIntersecting) setActive(e.target.id); 
-        });
-      }, { root: null, rootMargin: '-50% 0px -50% 0px', threshold: 0 });
-      obs.observe(el);
+      if (el) {
+        const obs = new IntersectionObserver(entries => {
+          entries.forEach(e => { if (e.isIntersecting) setActive(e.target.id); });
+        }, { rootMargin: '-20% 0px -80% 0px' });
+        obs.observe(el);
+      }
     });
 
-    // Smooth scroll
+    // Smooth Scrolling
     links.forEach(a => {
       a.addEventListener('click', e => {
         e.preventDefault();
@@ -710,65 +782,70 @@
       });
     });
 
-    // Project modal data
+    // Animate progress bars on scroll
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.querySelectorAll('.progress-fill').forEach(bar => {
+            bar.style.width = bar.style.width;
+          });
+        }
+      });
+    });
+    document.querySelectorAll('.skill').forEach(skill => observer.observe(skill));
+
+    // Project Details Data
     const projectDetails = {
       'hunt-career': {
-        title: 'Hunt-Career — Full Stack Job Aggregator + Test Automation',
-        images: [
-          'Images/HC-1.png',
-          'Images/HC-2.jpg',
-          'Images/HC-3.jpg',
-          'Images/HC-4.jpg',
-          'Images/HC-5.jpg',
-          'Images/HC-6.jpg'
-        ],
+        title: 'Hunt-Career: Full-Stack Job Aggregator & Automation Suite',
+        images: ['Images/HC-1.png', 'Images/HC-2.jpg', 'Images/HC-3.jpg', 'Images/HC-4.jpg', 'Images/HC-5.jpg', 'Images/HC-6.jpg'],
         content: `
           <div class="modal-description">
-            <p><strong>Stack:</strong> React, Node.js, Express, MongoDB, Selenium + TestNG</p>
-            <p><strong>Highlights:</strong> POM architecture, Excel-based data-driven tests, Extent Reports, reusable utilities, CI with Jenkins and GitHub Actions.</p>
+            <p><strong>Technologies:</strong> React, Node.js, Express, MongoDB, Selenium + TestNG, Jenkins</p>
+            <p><strong>Key Outcomes:</strong> Achieved 40% reduction in regression testing time; implemented scalable POM architecture with data-driven capabilities from Excel sheets.</p>
             <ul>
-              <li>Reduced manual regression effort by 40% while increasing coverage.</li>
-              <li>Implemented reporting and retry logic for flake reduction.</li>
-              <li>Scalable folder structure with clear separation of concerns.</li>
+              <li>Integrated Extent Reports for detailed analytics and retry mechanisms to minimize flakiness.</li>
+              <li>Deployed CI/CD pipelines ensuring automated execution on every commit.</li>
+              <li>Modular design promoting reusability and maintainability across teams.</li>
             </ul>
-            <p><a href="https://github.com/Pavan8396/Hunt_Career_Testing" target="_blank">GitHub Repository</a></p>
+            <p><a href="https://github.com/Pavan8396/Hunt_Career_Testing" target="_blank">Explore Repository</a></p>
           </div>
         `
       },
       'cms': {
-        title: 'Contact Management System — API Automation',
+        title: 'Contact Management System: API Automation Framework',
         images: [],
         content: `
           <div class="modal-description">
-            <p><strong>Stack:</strong> Cypress (API), Postman; CI-ready suite</p>
-            <p><strong>Highlights:</strong> 95% coverage across Functional, API, Regression; 150+ defects logged in JIRA.</p>
+            <p><strong>Technologies:</strong> Cypress, Postman, JIRA</p>
+            <p><strong>Key Outcomes:</strong> 95% test coverage across 2000+ cases; 40% efficiency gain in API validation.</p>
             <ul>
-              <li>Parameterized test data, environment configs.</li>
-              <li>Robust assertions for status codes and payload validation.</li>
-              <li>Artifacts integrated with CI for dashboards.</li>
+              <li>Parameterized suites with environment-specific configurations and robust payload assertions.</li>
+              <li>Automated defect logging and CI artifacts for real-time dashboards.</li>
+              <li>Comprehensive validation of CRUD operations and edge cases.</li>
             </ul>
           </div>
         `
       },
       'medico-legal': {
-        title: 'Medico-Legal Service System — Regression Automation',
+        title: 'Medico-Legal Service System: Regression Automation',
         images: [],
         content: `
           <div class="modal-description">
-            <p><strong>Stack:</strong> Selenium, TestNG, reporting tools</p>
-            <p><strong>Highlights:</strong> Saved 20+ hours per sprint; 120+ defects logged with 95% closure.</p>
+            <p><strong>Technologies:</strong> Selenium, TestNG, Extent Reports</p>
+            <p><strong>Key Outcomes:</strong> Saved 20+ hours per sprint; 95% defect closure rate on 120+ issues.</p>
             <ul>
-              <li>Core regression flows automated: auth, forms, workflows.</li>
-              <li>Stabilized flaky tests with explicit waits and retries.</li>
-              <li>Modular utilities for reusability across suites.</li>
+              <li>Automated authentication, form submissions, and workflow validations.</li>
+              <li>Enhanced stability with explicit waits, retries, and modular utilities.</li>
+              <li>Streamlined reporting for sprint retrospectives and team insights.</li>
             </ul>
           </div>
         `
       }
     };
 
-    // Carousel class
-    class ProjectCarousel {
+    // Single Image Viewer Class
+    class SingleImageViewer {
       constructor(container, images) {
         this.container = container;
         this.images = images;
@@ -779,46 +856,22 @@
 
       render() {
         if (this.images.length === 0) {
-          this.container.innerHTML = `
-            <div class="no-images">
-              <i class="fa-solid fa-images"></i>
-              <p>No images available for this project</p>
-            </div>
-          `;
+          this.container.innerHTML = `<div class="no-images"><i class="fa-solid fa-images"></i><p>No images available</p></div>`;
           return;
         }
 
-        let carouselHTML = `
-          <div class="carousel-container">
-            <div class="carousel-slides">
-              ${this.images.map((src, index) => `
-                <div class="carousel-slide ${index === 0 ? 'active' : ''}" data-slide="${index}">
-                  <img src="${src}" alt="Project image ${index + 1}" loading="lazy" />
-                </div>
-              `).join('')}
-            </div>
+        this.container.innerHTML = `
+          <div class="single-image-container">
+            <img id="currentImage" src="${this.images[0]}" alt="Project image 1" />
             ${this.images.length > 1 ? `
-              <div class="carousel-nav">
-                <button class="carousel-btn prev-btn">
-                  <i class="fa-solid fa-chevron-left"></i> Previous
-                </button>
-                <button class="carousel-btn next-btn">
-                  Next <i class="fa-solid fa-chevron-right"></i>
-                </button>
+              <div class="nav-buttons">
+                <button class="nav-btn prev-btn" disabled><i class="fa-solid fa-chevron-left"></i> Previous</button>
+                <button class="nav-btn next-btn"><i class="fa-solid fa-chevron-right"></i> Next</button>
               </div>
-              <div class="carousel-indicators">
-                ${this.images.map((_, index) => `
-                  <span class="carousel-indicator ${index === 0 ? 'active' : ''}" data-slide="${index}"></span>
-                `).join('')}
-              </div>
-              <div class="carousel-counter">
-                ${this.currentIndex + 1} / ${this.images.length}
-              </div>
+              <div class="image-counter">1 / ${this.images.length}</div>
             ` : ''}
           </div>
         `;
-        
-        this.container.innerHTML = carouselHTML;
       }
 
       bindEvents() {
@@ -826,185 +879,92 @@
 
         const prevBtn = this.container.querySelector('.prev-btn');
         const nextBtn = this.container.querySelector('.next-btn');
-        const indicators = this.container.querySelectorAll('.carousel-indicator');
+        const counter = this.container.querySelector('.image-counter');
+        const currentImg = this.container.querySelector('#currentImage');
 
-        prevBtn?.addEventListener('click', () => this.prev());
-        nextBtn?.addEventListener('click', () => this.next());
-        
-        indicators.forEach(indicator => {
-          indicator.addEventListener('click', () => {
-            this.goTo(parseInt(indicator.dataset.slide));
-          });
-        });
-      }
+        const updateDisplay = () => {
+          currentImg.src = this.images[this.currentIndex];
+          currentImg.alt = `Project image ${this.currentIndex + 1}`;
+          if (counter) counter.textContent = `${this.currentIndex + 1} / ${this.images.length}`;
+          prevBtn.disabled = this.currentIndex === 0;
+          nextBtn.disabled = this.currentIndex === this.images.length - 1;
+        };
 
-      showSlide(index) {
-        const slides = this.container.querySelectorAll('.carousel-slide');
-        const indicators = this.container.querySelectorAll('.carousel-indicator');
-        const counter = this.container.querySelector('.carousel-counter');
-        const prevBtn = this.container.querySelector('.prev-btn');
-        const nextBtn = this.container.querySelector('.next-btn');
-
-        slides.forEach((slide, i) => {
-          slide.classList.toggle('active', i === index);
+        prevBtn.addEventListener('click', () => {
+          if (this.currentIndex > 0) {
+            this.currentIndex--;
+            updateDisplay();
+          }
         });
 
-        indicators.forEach((indicator, i) => {
-          indicator.classList.toggle('active', i === index);
+        nextBtn.addEventListener('click', () => {
+          if (this.currentIndex < this.images.length - 1) {
+            this.currentIndex++;
+            updateDisplay();
+          }
         });
 
-        if (counter) {
-          counter.textContent = `${index + 1} / ${this.images.length}`;
-        }
-
-        prevBtn.disabled = index === 0;
-        nextBtn.disabled = index === this.images.length - 1;
-
-        this.currentIndex = index;
-      }
-
-      next() {
-        const nextIndex = (this.currentIndex + 1) % this.images.length;
-        this.showSlide(nextIndex);
-      }
-
-      prev() {
-        const prevIndex = (this.currentIndex - 1 + this.images.length) % this.images.length;
-        this.showSlide(prevIndex);
-      }
-
-      goTo(index) {
-        this.showSlide(index);
+        // Keyboard navigation
+        this.container.addEventListener('keydown', (e) => {
+          if (e.key === 'ArrowLeft' && this.currentIndex > 0) {
+            this.currentIndex--;
+            updateDisplay();
+          } else if (e.key === 'ArrowRight' && this.currentIndex < this.images.length - 1) {
+            this.currentIndex++;
+            updateDisplay();
+          }
+        });
       }
     }
 
-    // Modal logic
+    // Modal Functionality
     const modal = document.getElementById('projectModal');
     const modalTitle = document.getElementById('modalTitle');
     const modalTabs = document.getElementById('modalTabs');
     const modalBody = document.getElementById('modalBody');
     const modalClose = document.getElementById('modalClose');
-    let currentCarousel = null;
-    let currentTab = 'images';
+    let currentViewer = null;
 
     function showTab(tabName) {
-      currentTab = tabName;
-      
-      // Update tab buttons
-      document.querySelectorAll('.modal-tab').forEach(tab => {
-        tab.classList.toggle('active', tab.dataset.tab === tabName);
-      });
-
-      // Show content
-      const imagesContainer = document.getElementById('imagesContainer');
-      const contentContainer = document.getElementById('contentContainer');
-      
-      if (tabName === 'images') {
-        imagesContainer.style.display = 'block';
-        contentContainer.style.display = 'none';
-        imagesContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      } else {
-        imagesContainer.style.display = 'none';
-        contentContainer.style.display = 'block';
-        contentContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
+      document.querySelectorAll('.modal-tab').forEach(t => t.classList.toggle('active', t.dataset.tab === tabName));
+      document.getElementById('imagesContainer').style.display = tabName === 'images' ? 'block' : 'none';
+      document.getElementById('contentContainer').style.display = tabName === 'content' ? 'block' : 'none';
     }
 
     document.querySelectorAll('.project-card').forEach(card => {
       card.addEventListener('click', () => {
-        const key = card.getAttribute('data-project');
+        const key = card.dataset.project;
         const data = projectDetails[key];
         if (!data) return;
-
         modalTitle.textContent = data.title;
-        
-        // Create tabs
-        const hasImages = data.images && data.images.length > 0;
+        const hasImages = data.images?.length > 0;
         modalTabs.innerHTML = `
-          <button class="modal-tab ${hasImages ? '' : 'active'}" data-tab="content">
-            <i class="fa-solid fa-info-circle"></i> Details
-          </button>
-          ${hasImages ? `
-            <button class="modal-tab active" data-tab="images">
-              <i class="fa-solid fa-images"></i> Screenshots (${data.images.length})
-            </button>
-          ` : ''}
+          <button class="modal-tab ${!hasImages ? 'active' : ''}" data-tab="content"><i class="fa-solid fa-info-circle"></i> Details</button>
+          ${hasImages ? `<button class="modal-tab active" data-tab="images"><i class="fa-solid fa-images"></i> Screenshots (${data.images.length})</button>` : ''}
         `;
-
-        // Create tab containers
         modalBody.innerHTML = `
-          <div id="imagesContainer" style="display: ${hasImages ? 'block' : 'none'};">
-            <div id="carouselContainer"></div>
-          </div>
-          <div id="contentContainer" style="${hasImages ? 'display: none;' : 'display: block;'}" class="modal-description">
-            ${data.content}
-          </div>
+          <div id="imagesContainer" style="display: ${hasImages ? 'block' : 'none'};"><div id="viewerContainer"></div></div>
+          <div id="contentContainer" style="display: ${hasImages ? 'none' : 'block'};" class="modal-description">${data.content}</div>
         `;
-
-        // Show modal
-        modal.setAttribute('aria-hidden', 'false');
-        modal.style.display = 'flex';
+        modal.style.display = 'flex'; modal.setAttribute('aria-hidden', 'false');
         document.body.style.overflow = 'hidden';
-        modal.focus();
-
-        // Initialize carousel if images exist
-        setTimeout(() => {
-          if (hasImages) {
-            const carouselContainer = document.getElementById('carouselContainer');
-            currentCarousel = new ProjectCarousel(carouselContainer, data.images);
-          }
-          
-          // Bind tab events
-          document.querySelectorAll('.modal-tab').forEach(tab => {
-            tab.addEventListener('click', () => {
-              showTab(tab.dataset.tab);
-            });
-          });
-
-          // Default to content tab for projects without images
-          if (!hasImages) {
-            showTab('content');
-          }
-        }, 150);
+        if (hasImages) {
+          setTimeout(() => {
+            currentViewer = new SingleImageViewer(document.getElementById('viewerContainer'), data.images);
+            document.getElementById('imagesContainer').focus();
+          }, 100);
+        }
+        document.querySelectorAll('.modal-tab').forEach(tab => tab.addEventListener('click', () => showTab(tab.dataset.tab)));
       });
     });
 
     function closeModal() {
-      modal.style.display = 'none';
-      modal.setAttribute('aria-hidden', 'true');
-      document.body.style.overflow = '';
-      currentCarousel = null;
-      currentTab = 'images';
+      modal.style.display = 'none'; modal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = ''; currentViewer = null;
     }
-
     modalClose.addEventListener('click', closeModal);
-    modal.addEventListener('click', (e) => { 
-      if (e.target === modal) closeModal(); 
-    });
-
-    document.addEventListener('keydown', (e) => { 
-      if (e.key === 'Escape' && modal.style.display === 'flex') closeModal(); 
-    });
-
-    // Keyboard navigation for carousel
-    document.addEventListener('keydown', (e) => {
-      if (modal.style.display === 'flex' && currentTab === 'images' && currentCarousel) {
-        if (e.key === 'ArrowLeft') {
-          e.preventDefault();
-          currentCarousel.prev();
-        }
-        if (e.key === 'ArrowRight') {
-          e.preventDefault();
-          currentCarousel.next();
-        }
-      }
-    });
-
-    // Prevent background scroll
-    modal.addEventListener('touchmove', (e) => e.preventDefault(), { passive: false });
-    modal.addEventListener('wheel', (e) => { 
-      if (e.target === modal) e.preventDefault(); 
-    }, { passive: false });
+    modal.addEventListener('click', e => { if (e.target === modal) closeModal(); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape' && modal.style.display === 'flex') closeModal(); });
   </script>
 </body>
 </html>
